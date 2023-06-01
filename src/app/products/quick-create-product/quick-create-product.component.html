@@ -1,0 +1,19 @@
+<div class="form-container">
+    <div class="heading">
+        <h1>Create Quick Product</h1>
+    </div>
+    <div class="form-container" >
+        <form action="" #createProduct="ngForm" (ngSubmit)="onProductCreate(createProduct)">
+            <label for="name">Product name *</label>  
+            <input type="text" name="name" ngModel maxlength="30" required>
+
+            <label for="expiry">Expiry *</label>
+            <input type="date" name="expiry" ngModel required>
+
+            <label for="stock">Stock *</label>
+            <input type="number" name="stock" ngModel required>
+            <button type="submit" class="save-button" [disabled]="createProduct.invalid">Save</button>
+            <button type="button" class="save-button" routerLink="/list-of-products">Cancel</button>
+        </form>
+    </div>
+</div>

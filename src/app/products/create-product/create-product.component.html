@@ -1,0 +1,33 @@
+<div class="loading" *ngIf="isLoading" >Loading&#8230;</div>
+<div class="form-container" *ngIf="!isLoading">
+    <div class="heading">
+        <h1 class="main-heading">{{updateEnable?"Update Product":"Create new Product"}}</h1>
+        <h1 class="warning" *ngIf="productMessage">{{productMessage}}</h1>
+    </div>
+    <div class="form-container" >
+        <form  [formGroup]="createProductform" (ngSubmit)="onSubmit()">
+            <label for="name">Product name * </label>
+            <input type="text" formControlName="name"  maxlength="30">
+
+            <label for="expiry">Expiry * </label>
+            <input type="date" formControlName="expiry"  >
+
+            <label for="stock">Stock * </label>
+            <input type="number" formControlName="stock"   >
+
+            <label for="heading">Heading</label>
+            <input type="text" formControlName="heading"  maxlength="150">
+
+            <label for="subheading">Subheading</label>
+            <input type="text" formControlName="subheading"  maxlength="160">
+
+            <label for="tags">Tags</label>
+            <input type="text" formControlName="tags" >
+
+            <label for="description">Description</label>
+            <textarea name="description" id="" cols="30" rows="3" formControlName="description" maxlength="250"></textarea>
+            <button type="submit" class="save-button" [disabled]="createProductform?.invalid">{{updateEnable?"Update":"Save"}}</button>
+            <button type="button" class="save-button" >Cancel</button>
+        </form>
+    </div>
+</div>

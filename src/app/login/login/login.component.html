@@ -1,0 +1,15 @@
+<div class="login-container" >
+        <div *ngIf="enableLoader" class="loader-div">
+            <div  class="loader"></div>
+            <h1 style="color:white; margin-top:10px ;">Loading...</h1>
+        </div>
+        <div  class="error-box" *ngIf="error && !enableLoader"><h1>{{error}} !</h1></div>
+        <form *ngIf="!enableLoader"  action="" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+            <h1 class="form-header">Login Form</h1>
+            <label for="username">Username</label>
+            <input type="text" name="username" ngModel name="username" required email>
+            <label for="password">Password</label>
+            <input type="password" name="password" ngModel name="password" minlength="6">
+            <button type="submit" class="submit-button" [disabled]="!authForm.valid">{{isLoginMode?'Login':'SignUp'}}</button>
+        </form>
+</div>

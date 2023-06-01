@@ -1,0 +1,99 @@
+.product-list{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.table-heading{
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+table ,th ,td{
+    border: 2px solid black;
+    padding: 5px;
+
+}
+th{
+    background: lightblue;
+}
+table{
+    background-color: white;
+    width: 95%;
+    
+}
+.desc ,.head, .subhead ,.tags{
+    width:200px;
+}
+.name ,.expire{
+    width: 100px;
+   
+}
+.name>a{
+    text-decoration: none;
+    color: darkblue;
+    font-weight: 600;
+}
+button{
+    width: 60px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgb(15, 174, 15);
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+}
+.searchBars{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+.searchBars >input ,span{
+    margin-left: 20px;
+}
+.searchBars>input{
+    border-radius: 3px;
+}
+.delete-options{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: flex-start;
+}
+.delete-button{
+    width: 150px;
+    padding: 5px;
+    font-size: 12px;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  .loader-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

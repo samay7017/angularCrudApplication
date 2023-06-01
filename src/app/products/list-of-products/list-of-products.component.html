@@ -1,0 +1,51 @@
+<div *ngIf="enableLoader" class="loader-div">
+    <div class="loader"></div>
+    <h1 style="color:white; margin-top:10px ;">Loading...</h1>
+</div>
+<div class="product-list">
+    <div class="searchBars">
+        <span style="color:white">Search :</span>
+        <input type="text" name="search" [(ngModel)]="enteredSearchValue" placeholder="Search here">
+        <span *ngIf="settings?.settingDescription?.AllowProductSearch || admin" style="color:white">Search:</span>
+        <input *ngIf="settings?.settingDescription?.AllowProductSearch || admin" type="text" name="searchBox2"
+            [(ngModel)]="query" value="" #searchBox (keydown)="onProductSearch(searchBox.value)"
+            placeholder="Search here by api">
+    </div>
+
+    <h1 class="table-heading">All Product List</h1>
+    <table *ngIf="!enableLoader && settings">
+        <thead>
+            <tr>
+                <th *ngIf="settings?.settingDescription?.AllowMultipleDelete ||admin">CheckList</th>
+                <th>Name</th>
+                <th>Heading</th>
+                <th>Subheading</th>
+                <th>No. of Stock</th>
+                <th> Product expiry</th>
+                <th>tags</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor="let product of allProductsList | productFilter:enteredSearchValue">
+                <td *ngIf="settings?.settingDescription?.AllowMultipleDelete || admin"><input type="checkbox"
+                        [(ngModel)]="product.select"></td>
+                <td class="name"><a routerLink="/product-details/{{product?.id}}">{{product?.name}}</a></td>
+                <td class="head">{{product?.heading}}</td>
+                <td class="subhead">{{product?.subheading}}</td>
+                <td>{{product.stock}}</td>
+                <td class="expire">{{product?.expiry}}</td>
+                <td class="tags">{{product?.tags}}</td>
+                <td class="desc">{{product?.description}}</td>
+                <td><button type="button" routerLink="/create-product/{{product?.id}}"
+                        *ngIf="settings?.settingDescription?.AllowEdit ||admin">Edit</button>
+                    <button type="button" (click)="deleteProduct(product.id)">Remove</button>
+                </td>
+
+            </tr>
+        </thead>
+    </table>
+    <div class="delete-options">
+        <button (click)="onSelect()" class="delete-button"*ngIf="settings?.settingDescription?.AllowMultipleDelete ||admin">delete Selected items</button>
+        <button (click)="deleteAll()" class="delete-button" *ngIf="settings?.settingDescription?.AllowMultipleDelete || admin">delete All items</button>
+    </div>
+</div>

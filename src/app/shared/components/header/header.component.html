@@ -1,0 +1,16 @@
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark px-2"  *ngIf="(userDetails && isAuthenticated) || !isAuthenticated">
+        <div class="side-nav-button p-2 me-3 text-light" (click)="sideNavToggle()" *ngIf="isAuthenticated">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <a routerLink="/list-of-products" class="navbar-brand px-4">Sample Angular Project-2</a>
+        <div class="profile-logo dropdown dp-menu" *ngIf="isAuthenticated">
+            <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                {{userDetails?.name}} {{userDetails?.lastname}} {{userDetails?.isAdmin?"(Admin)":""}}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark logout-btn"> 
+                <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+            </ul>
+        </div>
+
+    </nav>

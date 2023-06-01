@@ -1,0 +1,24 @@
+<div class="login-container">
+    
+    <form  #authForm="ngForm"  >
+        <h1 class="form-header"> Admin Setting</h1>
+        <div class="setting-item">
+            <label for="edit">Allow users to edit</label>
+            <input type="checkbox"  ngModel name="edit" >
+        </div>
+        <div class="setting-item">
+            <label for="product-create">Allow product creation</label>
+            <input type="checkbox"   ngModel name="create">
+        </div>
+        <div class="setting-item">
+            <label for="product-search">Allow product search</label>
+            <input type="checkbox"  ngModel name="search">
+        </div>
+        <div class="setting-item">
+            <label for="multiple-delete">Allow multiple delete</label>
+            <input type="checkbox"  ngModel name="mdelete">
+        </div>
+        <button type="button" class="submit-button" (click)="onSubmit(authForm)" routerLink="/list-of-products" >Save</button>
+        <button type="button" class="submit-button" (click)="onReset()" routerLink="/list-of-products" >reset</button>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="detail-container" *ngIf="productDetails">
+    <div class="product-card">
+		<div class="product-details">
+			<span class="product-catagory"><h1>Name : {{productDetails?.name}}</h1></span>
+			<h4 *ngIf="productDetails?.heading">{{productDetails?.heading}}</h4>
+            <h5 *ngIf="productDetails?.subheading">{{productDetails?.subheading}}</h5>
+			<h5>Stock : {{productDetails?.stock}}</h5>
+			<h5>Expiry : {{productDetails?.expiry}}</h5>
+			<h5 *ngIf="productDetails?.tags">Tags : {{productDetails?.tags}}</h5>
+			<p *ngIf="productDetails?.description">{{productDetails?.description}}</p>
+			<div class="product-bottom-details">
+				<div class="product-price"><button type="button" routerLink="/create-product/{{pid}}" >Edit</button>
+                <button  (click)="deleteProduct(productDetails.id)">Remove</button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
